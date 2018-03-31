@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "standard",
+    "standard-jsx"
+  ],
+  "rules": {
+    "comma-dangle": "off"
+  },
+  "parser": "babel-eslint"
+}
