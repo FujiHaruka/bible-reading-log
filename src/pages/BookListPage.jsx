@@ -24,14 +24,14 @@ class BookListPage extends Component {
             <List
               bordered
               dataSource={bookList.oldTestament}
-              renderItem={(book) => <BookLink book={book} onClick={this.bookLinkHandler(book)} />}
+              renderItem={(book) => <BookLink book={book} onClick={this.handleBookLink(book)} />}
             />
           </TabPane>
           <TabPane tab='新約' key='new'>
             <List
               bordered
               dataSource={bookList.newTestament}
-              renderItem={(book) => <BookLink book={book} onClick={this.bookLinkHandler(book)} />}
+              renderItem={(book) => <BookLink book={book} onClick={this.handleBookLink(book)} />}
             />
           </TabPane>
         </Tabs>
@@ -39,7 +39,7 @@ class BookListPage extends Component {
     )
   }
 
-  bookLinkHandler (book) {
+  handleBookLink (book) {
     const {toggleIsBookListAnimating, history} = this.props
     return async () => {
       toggleIsBookListAnimating(true)

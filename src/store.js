@@ -9,26 +9,24 @@ const stateHandlers = withStateHandlers({
   isFirstVisit: true,
   isBookListAnimating: false,
   // Book
-  selectedBookId: null,
   selectedChapter: null,
   // Reading log
-  readingLog: {},
+  readingLogs: {},
 }, {
   toggleIsBookListAnimating: updaterOf('isBookListAnimating'),
-  selectBook: updaterOf('selectedBookId'),
   selectChapter: updaterOf('selectedChapter'),
-  markAsReadOnToday: ({readingLog}) => ({bookId, chapter}) => {
+  markAsReadOnToday: ({readingLogs}) => ({bookId, chapter}) => {
     const today = String(new Date())
-    const marks = (readingLog[bookId] && readingLog[bookId][chapter]) || [] 
+    const marks = (readingLogs[bookId] && readingLogs[bookId][chapter]) || []
     const nextReadingLog = merge(
-      readingLog,
+      readingLogs,
       {
         [bookId]: {
-          [chapter]: [...marks, today]
+          [chapter]: [today]
         }
       }
     )
-    return {readingLog: nextReadingLog}
+    return {readingLogs: nextReadingLog}
   }
 })
 

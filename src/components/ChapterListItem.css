@@ -1,0 +1,19 @@
+.ChapterListItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ChapterListItem-chapter {
+  margin-right: 12px;
+}
+
+.ChapterListItem-avatars {
+
+}
+
+.ChapterListItem-avatar {
+  margin-right: 6px;
+  /* default color */
+  background: #4CAF50;
+}

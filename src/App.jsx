@@ -21,7 +21,7 @@ class App extends Component {
           </Header>
           <Content className='App-content'>
             <Route exact path='/' render={(props) => <BookListPage {...props} {...parentProps} />} />
-            <Route exact path='/books/:bookId' render={(props) => <BookPage {...props} />} {...parentProps} />
+            <Route exact path='/books/:bookId' render={(props) => <BookPage {...props} {...parentProps} />} />
           </Content>
         </Layout>
       </Router>

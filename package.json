@@ -7,6 +7,7 @@
     "asleep": "^1.0.3",
     "classnames": "^2.2.5",
     "deepmerge": "^2.1.0",
+    "moment": "^2.22.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-router-dom": "^4.2.2",
