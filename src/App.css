@@ -1,8 +1,11 @@
 .App {
 }
 
-.App-header {
+.App-header.ant-layout-header {
   color: white;
+  background: #02396d;
+  font-size: 1.2em;
+  font-weight: 100;
 }
 
 .App-content {

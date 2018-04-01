@@ -7,7 +7,7 @@ import {
 } from 'antd'
 import asleep from 'asleep'
 import c from 'classnames'
-import querystring from 'query-string'
+import querystring from 'querystring'
 const {TabPane} = Tabs
 
 const tabKeyFromQueryString = () => {

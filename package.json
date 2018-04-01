@@ -7,8 +7,9 @@
     "asleep": "^1.0.3",
     "classnames": "^2.2.5",
     "deepmerge": "^2.1.0",
+    "gh-pages": "^1.1.0",
     "moment": "^2.22.0",
-    "query-string": "^6.0.0",
+    "querystring": "^0.2.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-router-dom": "^4.2.2",
@@ -16,10 +17,12 @@
     "recompose": "^0.26.0",
     "store": "^2.0.12"
   },
+  "homepage": "https://fujiharuka.github.io/bible-reading-log",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && gh-pages -d build"
   }
 }
