@@ -8,6 +8,7 @@ import {
 import {injectState} from './store'
 import {Layout} from 'antd'
 import {BookListPage, BookPage} from './pages'
+import storage from 'store'
 const {Header, Content} = Layout
 
 class App extends Component {
@@ -28,6 +29,20 @@ class App extends Component {
         </Layout>
       </Router>
     )
+  }
+
+  componentDidMount () {
+    // Load from local storage
+    const readingLogs = storage.get('readingLogs')
+    if (readingLogs) {
+      this.props.setReadingLogs(readingLogs)
+    }
+  }
+
+  componentDidUpdate () {
+    // Save to local storage
+    const {readingLogs} = this.props
+    storage.set('readingLogs', readingLogs)
   }
 }
 

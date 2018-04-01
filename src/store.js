@@ -34,6 +34,7 @@ const stateHandlers = withStateHandlers({
     nextReadingLog[bookId][chapter] = dates
     return {readingLogs: nextReadingLog}
   },
+  setReadingLogs: updaterOf('readingLogs'),
   setReadingLogModal: () => ({bookId, bookName, chapter, date, visible}) => ({
     readingLogModalProps: {bookId, bookName, chapter, date, visible}
   }),

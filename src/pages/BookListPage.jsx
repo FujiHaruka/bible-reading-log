@@ -19,7 +19,7 @@ class BookListPage extends Component {
       <div className={c('BookListPage', {
         'BookListPage-moveAnimating': isBookListAnimating,
       })}>
-        <Tabs type='card' size='large' className='BookListPage-tabs'>
+        <Tabs type='card' className='BookListPage-tabs'>
           <TabPane tab='旧約' key='old'>
             <List
               dataSource={bookList.oldTestament}

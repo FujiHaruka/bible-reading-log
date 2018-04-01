@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.ant-list-item {
+  padding-right: 8px;
+  padding-left: 8px;
+}
