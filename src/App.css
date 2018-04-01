@@ -7,4 +7,12 @@
 
 .App-content {
   background: white;
+  padding-top: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.App-content-inner {
+  width: 100%;
+  max-width: 800px;
 }

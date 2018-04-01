@@ -3,5 +3,15 @@
 }
 
 .BookListPage-moveAnimating {
-  transform: translateX(-100%);
+  transform: translateX(-150%);
+}
+
+.BookListPage-tabs .ant-tabs-nav {
+  width: 100%;
+}
+
+.BookListPage-tabs .ant-tabs-tab {
+  width: 45%;
+  max-width: 12em;
+  text-align: center;
 }

@@ -17,11 +17,13 @@ class App extends Component {
       <Router>
         <Layout>
           <Header className='App-header'>
-            通読表
+            聖書通読表
           </Header>
           <Content className='App-content'>
-            <Route exact path='/' render={(props) => <BookListPage {...props} {...parentProps} />} />
-            <Route exact path='/books/:bookId' render={(props) => <BookPage {...props} {...parentProps} />} />
+            <div className='App-content-inner'>
+              <Route exact path='/' render={(props) => <BookListPage {...props} {...parentProps} />} />
+              <Route exact path='/books/:bookId' render={(props) => <BookPage {...props} {...parentProps} />} />
+            </div>
           </Content>
         </Layout>
       </Router>
