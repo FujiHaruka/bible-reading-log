@@ -8,6 +8,7 @@ const stateHandlers = withStateHandlers({
   // View
   isFirstVisit: true,
   isBookListAnimating: false,
+  readingLogModalProps: {},
   // Book
   selectedChapter: null,
   // Reading log
@@ -17,7 +18,6 @@ const stateHandlers = withStateHandlers({
   selectChapter: updaterOf('selectedChapter'),
   markAsReadOnToday: ({readingLogs}) => ({bookId, chapter}) => {
     const today = String(new Date())
-    const marks = (readingLogs[bookId] && readingLogs[bookId][chapter]) || []
     const nextReadingLog = merge(
       readingLogs,
       {
@@ -27,7 +27,19 @@ const stateHandlers = withStateHandlers({
       }
     )
     return {readingLogs: nextReadingLog}
-  }
+  },
+  removeLog: ({readingLogs}) => ({bookId, chapter, date}) => {
+    const dates = readingLogs[bookId][chapter].filter((d) => d !== date)
+    const nextReadingLog = {...readingLogs}
+    nextReadingLog[bookId][chapter] = dates
+    return {readingLogs: nextReadingLog}
+  },
+  setReadingLogModal: () => ({bookId, bookName, chapter, date, visible}) => ({
+    readingLogModalProps: {bookId, bookName, chapter, date, visible}
+  }),
+  closeReadingLogModal: ({readingLogModalProps}) => () => ({
+    readingLogModalProps: {...readingLogModalProps, visible: false}
+  })
 })
 
 const bookList = {

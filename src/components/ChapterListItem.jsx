@@ -9,13 +9,13 @@ const isDateEqual = (date1, date2) => moment(date1).format('YYYYMMDD') === momen
 const hasBeenCheckedToday = (logs) =>
   logs.some((date) => isDateEqual(date, new Date()))
 
-const ReadAvator = ({date}) => (
-  <Avatar className='ChapterListItem-avatar'>
+const ReadAvator = ({date, onClick}) => (
+  <Avatar className='ChapterListItem-avatar' onClick={onClick}>
     {moment(date).format('MM/DD')}
   </Avatar>
 )
 
-const ChapterListItem = ({chapter, logs, onAdd}) => (
+const ChapterListItem = ({book, chapter, logs, onAdd, onClickAvastar}) => (
   <ListItem>
     <div className='ChapterListItem'>
       <div className='ChapterListItem-left'>
@@ -24,7 +24,12 @@ const ChapterListItem = ({chapter, logs, onAdd}) => (
         </span>
         <span className='ChapterListItem-avatars'>
           {
-            logs.map((date) => <ReadAvator date={date} />)
+            logs.map((date) =>
+              <ReadAvator
+                date={date}
+                onClick={() => onClickAvastar({bookId: book.book.toLowerCase(), bookName: book.name, chapter, date, visible: true})}
+              />
+            )
           }
         </span>
       </div>

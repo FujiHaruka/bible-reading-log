@@ -1,8 +1,8 @@
 import './BookPage.css'
 import React, {Component} from 'react'
 import {List} from 'antd'
-import {BackLink, ChapterListItem} from '../components'
-import {Link} from 'react-router-dom'
+import asleep from 'asleep'
+import {BackLink, ChapterListItem, ReadingLogModal} from '../components'
 
 class BookPage extends Component {
   render () {
@@ -10,6 +10,10 @@ class BookPage extends Component {
       match,
       bookMetaData,
       readingLogs,
+      readingLogModalProps,
+      setReadingLogModal,
+      removeLog,
+      closeReadingLogModal,
     } = this.props
     const {bookId} = match.params
     const book = bookMetaData[bookId]
@@ -30,8 +34,24 @@ class BookPage extends Component {
           header={<div>{book.name}</div>}
           dataSource={chapters}
           renderItem={({chapter, logs}) =>
-            <ChapterListItem {...{chapter, logs}} onAdd={this.handleAddLog({bookId, chapter})} />
+            <ChapterListItem
+              {...{chapter, logs, book}}
+              onAdd={this.handleAddLog({bookId, chapter})}
+              onClickAvastar={setReadingLogModal}
+            />
           }
+        />
+
+        <ReadingLogModal
+          {...readingLogModalProps}
+          onOk={async () => {
+            closeReadingLogModal()
+            await asleep(100)
+            const {bookId, chapter, date} = readingLogModalProps
+            removeLog({bookId, chapter, date})
+            setReadingLogModal({})
+          }}
+          onCancel={closeReadingLogModal}
         />
       </div>
     )
