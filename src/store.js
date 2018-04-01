@@ -17,7 +17,7 @@ const stateHandlers = withStateHandlers({
   toggleIsBookListAnimating: updaterOf('isBookListAnimating'),
   selectChapter: updaterOf('selectedChapter'),
   markAsReadOnToday: ({readingLogs}) => ({bookId, chapter}) => {
-    const today = String(new Date())
+    const today = new Date().toISOString()
     const nextReadingLog = merge(
       readingLogs,
       {

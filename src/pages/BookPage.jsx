@@ -30,7 +30,7 @@ class BookPage extends Component {
       <div className='BookPage'>
         <BackLink to='/' />
         <List
-          header={<div>{book.name}</div>}
+          header={<div className='BookPage-title'>{book.name}</div>}
           dataSource={chapters}
           renderItem={({chapter, logs}) =>
             <ChapterListItem

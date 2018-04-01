@@ -26,6 +26,7 @@ const ChapterListItem = ({book, chapter, logs, onAdd, onClickAvastar}) => (
           {
             logs.map((date) =>
               <ReadAvator
+                key={date}
                 date={date}
                 onClick={() => onClickAvastar({bookId: book.book.toLowerCase(), bookName: book.name, chapter, date, visible: true})}
               />

@@ -7,19 +7,32 @@ import {
 } from 'antd'
 import asleep from 'asleep'
 import c from 'classnames'
+import querystring from 'query-string'
 const {TabPane} = Tabs
+
+const tabKeyFromQueryString = () => {
+  const query = querystring.parse(window.location.search) || {}
+  return query.tab || 'old'
+}
 
 class BookListPage extends Component {
   render () {
     const {
       bookList,
       isBookListAnimating,
+      history,
     } = this.props
+    const tabKey = tabKeyFromQueryString()
     return (
       <div className={c('BookListPage', {
         'BookListPage-moveAnimating': isBookListAnimating,
       })}>
-        <Tabs type='card' className='BookListPage-tabs'>
+        <Tabs
+          type='card'
+          className='BookListPage-tabs'
+          activeKey={tabKey}
+          onChange={(key) => history.push(`/?tab=${key}`)}
+        >
           <TabPane tab='旧約' key='old'>
             <List
               dataSource={bookList.oldTestament}
