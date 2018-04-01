@@ -1,0 +1,7 @@
+.BookListPage {
+  transition: 0.4s;
+}
+
+.BookListPage-moveAnimating {
+  transform: translateX(-100%);
+}
