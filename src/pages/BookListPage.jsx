@@ -10,8 +10,8 @@ import c from 'classnames'
 import querystring from 'querystring'
 const {TabPane} = Tabs
 
-const tabKeyFromQueryString = () => {
-  const query = querystring.parse(window.location.search) || {}
+const tabKeyFromQueryString = (location) => {
+  const query = querystring.parse(location.search.substr(1)) || {}
   return query.tab || 'old'
 }
 
@@ -21,8 +21,9 @@ class BookListPage extends Component {
       bookList,
       isBookListAnimating,
       history,
+      location,
     } = this.props
-    const tabKey = tabKeyFromQueryString()
+    const tabKey = tabKeyFromQueryString(location)
     return (
       <div className={c('BookListPage', {
         'BookListPage-moveAnimating': isBookListAnimating,

@@ -2,7 +2,7 @@ import './App.css'
 import 'antd/dist/antd.css'
 import React, { Component } from 'react'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route
 } from 'react-router-dom'
 import {injectState} from './store'
@@ -15,7 +15,7 @@ class App extends Component {
   render () {
     const parentProps = this.props
     return (
-      <Router>
+      <Router basename={process.env.NODE_ENV === 'production' ? '/bible-reading-log/' : '/'} >
         <Layout>
           <Header className='App-header'>
             聖書通読表
