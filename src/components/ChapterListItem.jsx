@@ -2,15 +2,21 @@ import './ChapterListItem.css'
 import React from 'react'
 import {pure} from 'recompose'
 import moment from 'moment'
+import Color from 'color'
 import {List, Button, Avatar} from 'antd'
 const {Item: ListItem} = List
 
 const isDateEqual = (date1, date2) => moment(date1).format('YYYYMMDD') === moment(date2).format('YYYYMMDD')
 const hasBeenCheckedToday = (logs) =>
   logs.some((date) => isDateEqual(date, new Date()))
+const colorOfMonth = (date) => {
+  const d = new Date(date)
+  const month = d.getFullYear() * 12 + d.getMonth()
+  return Color('#4CAF50').rotate(month * 57).rgb().string()
+}
 
 const ReadAvator = ({date, onClick}) => (
-  <Avatar className='ChapterListItem-avatar' onClick={onClick}>
+  <Avatar className='ChapterListItem-avatar' onClick={onClick} style={{background: colorOfMonth(date)}}>
     {moment(date).format('MM/DD')}
   </Avatar>
 )
