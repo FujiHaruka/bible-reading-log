@@ -6,8 +6,9 @@ import {
   Route
 } from 'react-router-dom'
 import {injectState} from './store'
-import {Layout} from 'antd'
+import {Layout, Icon} from 'antd'
 import {BookListPage, BookPage} from './pages'
+import {showHelpDialog} from './components'
 import storage from 'store'
 const {Header, Content} = Layout
 
@@ -18,10 +19,15 @@ class App extends Component {
       <Router basename={process.env.NODE_ENV === 'production' ? '/bible-reading-log/' : '/'} >
         <Layout>
           <Header className='App-header'>
-            聖書通読表
+            <div className='App-container'>
+              聖書通読表
+              <div className='App-header-right'>
+                <Icon className='App-header-help' type='question-circle-o' onClick={showHelpDialog} />
+              </div>
+            </div>
           </Header>
           <Content className='App-content'>
-            <div className='App-content-inner'>
+            <div className='App-container'>
               <Route exact path='/' render={(props) => <BookListPage {...props} {...parentProps} />} />
               <Route exact path='/books/:bookId' render={(props) => <BookPage {...props} {...parentProps} />} />
             </div>

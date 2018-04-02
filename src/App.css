@@ -1,6 +1,11 @@
 .App {
 }
 
+.App-header {
+  display: flex;
+  justify-content: center;
+}
+
 .App-header.ant-layout-header {
   color: white;
   background: #02396d;
@@ -15,7 +20,20 @@
   justify-content: center;
 }
 
-.App-content-inner {
+.App-container {
+  position: relative;
   width: 100%;
   max-width: 800px;
+}
+
+.App-header-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.App-header-help {
+  cursor: pointer;
+  font-size: 1.2em;
 }
