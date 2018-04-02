@@ -1,6 +1,6 @@
 {
   "name": "bible-reading-log",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "antd": "^3.3.3",
