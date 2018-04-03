@@ -18,9 +18,9 @@ const {Header, Content} = Layout
 class App extends Component {
   render () {
     const parentProps = this.props
-    const {visibleMenu, history, location} = this.props
+    const {visibleMenu, toggleVisibleMenu, history, location} = this.props
     return (
-      <Layout>
+      <Layout className='App'>
         <Header className='App-header'>
           <div className='App-container'>
             <Link to='/' className='App-header-title'>聖書通読表</Link>
@@ -38,6 +38,7 @@ class App extends Component {
                 }
                 placement='bottomRight'
                 trigger={['click']}
+                onVisibleChange={toggleVisibleMenu}
               >
                 <Icon className='App-header-menu' type={visibleMenu ? 'menu-unfold' : 'menu-fold'} />
               </Dropdown>

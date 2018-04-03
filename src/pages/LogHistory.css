@@ -1,0 +1,31 @@
+.LogHistory {
+}
+
+.LogHistory-content {
+}
+
+.LogHistory-list-title {
+  display: inline-block;
+  font-size: 1.2em;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.LogHistory-list-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  font-size: 0.95em;
+}
+
+.LogHistory-list-item-book {
+  white-space: nowrap;
+}
+
+.LogHistory-list-item-date {
+  color: #aaa;
+  font-weight: 100;
+  font-family: monospace;
+}

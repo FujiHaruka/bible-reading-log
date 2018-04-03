@@ -9,11 +9,13 @@ const stateHandlers = withStateHandlers({
   isFirstVisit: true,
   isBookListAnimating: false,
   readingLogModalProps: {},
+  visibleMenu: false,
   // Book
   selectedChapter: null,
   // Reading log
   readingLogs: {},
 }, {
+  toggleVisibleMenu: updaterOf('visibleMenu'),
   toggleIsBookListAnimating: updaterOf('isBookListAnimating'),
   selectChapter: updaterOf('selectedChapter'),
   markAsReadOnToday: ({readingLogs}) => ({bookId, chapter}) => {
