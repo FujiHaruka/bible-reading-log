@@ -33,7 +33,21 @@
   z-index: 1;
 }
 
-.App-header-help {
+.App-header-menu {
   cursor: pointer;
   font-size: 1.2em;
+}
+
+.App-header-title {
+  text-decoration: none;
+  color: white;
+}
+.App-header-title:focus {
+  text-decoration: none;
+}
+
+.App-menu-item {
+  display: inline-block;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
